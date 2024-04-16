@@ -1,3 +1,3 @@
-# rech_mobile_app_banco_imobiliario
+# App Banco Imobiliario
 
-A new Flutter project.
+Esse app foi construido com o intuito de susbtituir a maquina de cartão do jogo físico.
