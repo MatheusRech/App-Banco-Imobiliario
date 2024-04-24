@@ -1,13 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/data/models/jogador.dart';
+import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/acoes.controller.base.dart';
 
 part 'transferir.controller.g.dart';
 
 class JogoTransferirController = JogoTransferirControllerBase with _$JogoTransferirController;
 
-abstract class JogoTransferirControllerBase with Store, AcoesControllerBase {
+abstract class JogoTransferirControllerBase extends AcoesControllerBase with Store {
+  JogoTransferirControllerBase({required super.jogoController});
 
   @observable
   Jogador? _jogadorTransferir;

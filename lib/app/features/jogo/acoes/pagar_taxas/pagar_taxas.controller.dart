@@ -6,8 +6,9 @@ part 'pagar_taxas.controller.g.dart';
 
 class PagarTaxasController = PagarTaxasControllerBase with _$PagarTaxasController;
 
-abstract class PagarTaxasControllerBase with Store, AcoesControllerBase {
-  
+abstract class PagarTaxasControllerBase extends AcoesControllerBase with Store {
+  PagarTaxasControllerBase({required super.jogoController});
+
   final _controllerInput = TextEditingController();
   TextEditingController get controllerInput => _controllerInput;
 

@@ -1,15 +1,13 @@
 import 'package:flutter/material.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/erro/erro.controller.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/transferir/transferir.controller.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/core/services/injecao_dependencia.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/transferir/transferir.estado.dart';
 
 class JogoTransferirView extends StatefulWidget {
+  const JogoTransferirView({super.key, required this.controller, required this.erroController});
 
-  JogoTransferirView({super.key});
-
-  final controller = InjecaoDependencia.obterDependencia<JogoTransferirController>();
-  final erroController = InjecaoDependencia.obterDependencia<ErroController>();
+  final JogoTransferirController controller;
+  final ErroController erroController;
 
   void transferir(BuildContext context) {
     controller.transferir();
@@ -18,6 +16,7 @@ class JogoTransferirView extends StatefulWidget {
   }
 
   @override
-  TransferirViewEstado createState() => TransferirViewEstado();
+  // ignore: no_logic_in_create_state
+  TransferirViewEstado createState() => TransferirViewEstado(erroController: erroController);
 }
 

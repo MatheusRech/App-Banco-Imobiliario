@@ -8,23 +8,30 @@ import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/pagar_
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/transferir/transferir.controller.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/jogo.controller.dart';
 
-class InjecaoDependencia {
-  static final GetIt _provider = GetIt.instance;
-  
-  static void registrarDependencias() {
-    _provider.registerSingleton(ResultadoController());
-    _provider.registerSingleton(JogadoresController());
-    _provider.registerSingleton(ConfiguracaoController());
-    _provider.registerSingleton(JogoController());
-    _provider.registerSingleton(ErroController());
-   
-    
-    _provider.registerFactory(() => AdicionarFundosController());
-    _provider.registerFactory(() => PagarTaxasController());
-    _provider.registerFactory(() => JogoTransferirController());
-  }
+final GetIt provider = GetIt.instance;
 
-  static T obterDependencia<T extends Object>() {
-    return _provider.get<T>();
-  }
+registrarDependencias() {
+  provider.registerLazySingleton<ResultadoController>(() => ResultadoController());
+  provider.registerLazySingleton<JogadoresController>(() => JogadoresController());
+  provider.registerLazySingleton<ConfiguracaoController>(() => ConfiguracaoController());
+  provider.registerLazySingleton<JogoController>(() => JogoController(
+    jogadoresController: provider<JogadoresController>(),
+    configuracaoController: provider<ConfiguracaoController>(),
+    resultadoController: provider<ResultadoController>()
+  ));
+  provider.registerLazySingleton<ErroController>(() => ErroController());   
+    
+  provider.registerFactory(() => AdicionarFundosController(
+    jogoController: provider<JogoController>()
+  ));
+  provider.registerFactory(() => PagarTaxasController(
+    jogoController: provider<JogoController>()
+  ));
+  provider.registerFactory(() => JogoTransferirController(
+    jogoController: provider<JogoController>()
+  ));
+}
+
+T obterDependencia<T extends Object>(){
+  return provider<T>();
 }

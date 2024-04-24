@@ -1,7 +1,7 @@
 
 import 'package:flutter/material.dart';
 import 'package:mobx/mobx.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/data/models/jogador.dart';
+import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/routes/rotas.dart';
 
 part 'jogadores.controller.g.dart';

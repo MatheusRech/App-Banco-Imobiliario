@@ -1,15 +1,14 @@
 import 'package:flutter/material.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/resultado/resultado.controller.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/core/services/injecao_dependencia.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/routes/rotas.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/scaffold_tema.dart';
 
 class JogoResultadoView extends StatelessWidget {
 
-  JogoResultadoView({super.key});
+  const JogoResultadoView({super.key, required this.controller});
 
-  final _controller = InjecaoDependencia.obterDependencia<ResultadoController>();
+  final ResultadoController controller;
 
   @override
   Widget build(BuildContext context) {
@@ -37,7 +36,7 @@ class JogoResultadoView extends StatelessWidget {
                     borderRadius: BorderRadius.circular(8)
                   ),
                   child: Text(
-                    _controller.milionario.nome,
+                    controller.milionario.nome,
                     style: Theme.of(context).textTheme.titleLarge?.merge(const TextStyle(
                     shadows: [
                       Shadow(color: Color.fromARGB(255, 0, 0, 0), offset: Offset(0,2), blurRadius: 1),
@@ -48,11 +47,11 @@ class JogoResultadoView extends StatelessWidget {
                     textAlign: TextAlign.center,
                   ),
                 ),
-                for (var i = 0; i < _controller.jogadores.length; i++)
+                for (var i = 0; i < controller.jogadores.length; i++)
                   Padding(
                     padding: const EdgeInsets.only(top: 5),
                     child: Text(
-                      '${i+1}º ${_controller.jogadores[i].nome} - R\$ ${_controller.jogadores[i].capital}',
+                      '${i+1}º ${controller.jogadores[i].nome} - R\$ ${controller.jogadores[i].capital}',
                       style: Theme.of(context).textTheme.bodySmall,
                       textAlign: TextAlign.center,
                     ),

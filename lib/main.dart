@@ -4,8 +4,8 @@ import 'package:rech_mobile_app_banco_imobiliario/app/core/theme/tema.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/routes/rotas.dart';
 
 void main() {
-
-  InjecaoDependencia.registrarDependencias();
+  
+  registrarDependencias();
 
   runApp(const MainApp());
 }

@@ -1,4 +1,4 @@
-import 'package:rech_mobile_app_banco_imobiliario/app/data/models/jogador.dart';
+import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 
 class ResultadoController {
   late List<Jogador> _jogadores;

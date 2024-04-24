@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_mobx/flutter_mobx.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/core/theme/tema.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/data/models/jogador.dart';
+import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/escolha_jogador/escolha_jogador.view.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/routes/rotas.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
