@@ -6,7 +6,10 @@ part 'adicionar_fundos.controller.g.dart';
 
 class AdicionarFundosController = AdicionarFundosControllerBase with _$AdicionarFundosController;
 
-abstract class AdicionarFundosControllerBase with Store, AcoesControllerBase {
+abstract class AdicionarFundosControllerBase extends AcoesControllerBase with Store {
+
+  AdicionarFundosControllerBase({required super.jogoController});
+
   final _controllerInput = TextEditingController();
   TextEditingController get controllerInput => _controllerInput;
 

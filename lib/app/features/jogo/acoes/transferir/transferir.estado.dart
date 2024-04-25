@@ -10,6 +10,7 @@ import 'package:rech_mobile_app_banco_imobiliario/app/ui/jogador_escolhido.dart'
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/scaffold_tema.dart';
 
 class TransferirViewEstado extends ErroViewStatefulBase<JogoTransferirView> {
+  TransferirViewEstado({required super.erroController});
 
   @override
   Function(BuildContext p1) get builder => (context) =>

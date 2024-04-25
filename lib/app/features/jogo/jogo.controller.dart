@@ -1,8 +1,7 @@
 import 'package:mobx/mobx.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/configuracao/configuracao.controller.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogadores/jogadores.controller.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/core/services/injecao_dependencia.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/data/models/jogador.dart';
+import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/resultado/resultado.controller.dart';
 
 part 'jogo.controller.g.dart';
@@ -10,12 +9,13 @@ part 'jogo.controller.g.dart';
 class JogoController = JogoControllerBase with _$JogoController;
 
 abstract class JogoControllerBase with Store {
+  JogoControllerBase({required this.jogadoresController, required this.configuracaoController, required this.resultadoController});
 
-  final JogadoresController _jogadoresController = InjecaoDependencia.obterDependencia<JogadoresController>();
-  final ConfiguracaoController _configuracaoController = InjecaoDependencia.obterDependencia<ConfiguracaoController>();
-  final ResultadoController _resultadoController = InjecaoDependencia.obterDependencia<ResultadoController>();
+  final JogadoresController jogadoresController;
+  final ConfiguracaoController configuracaoController;
+  final ResultadoController resultadoController;
 
-  List<Jogador> get jogadores => _jogadoresController.jogadores;
+  List<Jogador> get jogadores => jogadoresController.jogadores;
   
   @observable
   late Jogador _jogadorJogando;
@@ -24,8 +24,8 @@ abstract class JogoControllerBase with Store {
 
   @action
   void iniciarJogo() {
-    for (var jogador in _jogadoresController.jogadores) {
-      jogador.transferirFundos(_configuracaoController.valorParaCadaJogador);
+    for (var jogador in jogadoresController.jogadores) {
+      jogador.transferirFundos(configuracaoController.valorParaCadaJogador);
     }
   }
 
@@ -37,8 +37,8 @@ abstract class JogoControllerBase with Store {
   @action
   void encerrarJogo(){
     jogadores.sort((a,b) => b.capital.compareTo(a.capital));
-    _resultadoController.encerrarJogo(jogadores.first, jogadores);
-    _jogadoresController.resetar();
-    _configuracaoController.resetar();
+    resultadoController.encerrarJogo(jogadores.first, jogadores);
+    jogadoresController.resetar();
+    configuracaoController.resetar();
   }
 }

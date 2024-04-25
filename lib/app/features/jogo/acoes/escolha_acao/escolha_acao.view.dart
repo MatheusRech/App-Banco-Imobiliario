@@ -1,16 +1,15 @@
 import 'package:flutter/material.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/core/theme/tema.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/jogo.controller.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/core/services/injecao_dependencia.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/routes/rotas.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/jogador_escolhido.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/scaffold_tema.dart';
 
 class JogoEscolhaAcaoView extends StatelessWidget {
-  JogoEscolhaAcaoView({super.key});
+  const JogoEscolhaAcaoView({super.key, required this.controller});
 
-  final controller = InjecaoDependencia.obterDependencia<JogoController>();
+  final JogoController controller;
 
   @override
   Widget build(BuildContext context) {

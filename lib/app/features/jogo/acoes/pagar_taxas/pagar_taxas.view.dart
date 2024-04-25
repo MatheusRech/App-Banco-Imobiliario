@@ -2,7 +2,6 @@ import 'package:flutter/material.dart';
 import 'package:flutter/services.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/core/theme/tema.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/erro/erro-stateless.view.base.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/core/services/injecao_dependencia.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/pagar_taxas/pagar_taxas.controller.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/input.dart';
@@ -11,9 +10,9 @@ import 'package:rech_mobile_app_banco_imobiliario/app/ui/scaffold_tema.dart';
 
 class JogoPagarTaxasView extends ErroViewStatelessBase {
 
-  JogoPagarTaxasView({super.key});
+  const JogoPagarTaxasView({super.key, required this.controller, required super.erroController});
 
-  final controller = InjecaoDependencia.obterDependencia<PagarTaxasController>(); 
+  final PagarTaxasController controller;
 
   void pagar(BuildContext context) {
     controller.pagar();

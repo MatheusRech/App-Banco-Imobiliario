@@ -7,7 +7,8 @@ import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/scaffold_tema.dart';
 
 class ConfiguracaoEstado extends ErroViewStatefulBase<ConfiguracaoView> {
-  
+  ConfiguracaoEstado({required super.erroController});
+
   void iniciar(BuildContext context) {
     widget.controllerJogo.iniciarJogo();
     Navigator.pushNamed(context, Rotas.jogoEscolhaJogador);

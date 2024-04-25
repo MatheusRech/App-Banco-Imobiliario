@@ -1,12 +1,11 @@
 import 'package:flutter/material.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/escolha_jogador/escolha_jogador.estador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/jogo.controller.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/core/services/injecao_dependencia.dart';
 
 class JogoEscolhaJogadorView extends StatefulWidget {
-  JogoEscolhaJogadorView({super.key});
+  const JogoEscolhaJogadorView({super.key, required this.controller});
 
-  final controller = InjecaoDependencia.obterDependencia<JogoController>();
+  final JogoController controller;
 
   @override
   JogoEscolhaJogadorViewEstado createState() => JogoEscolhaJogadorViewEstado();

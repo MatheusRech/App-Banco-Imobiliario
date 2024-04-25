@@ -3,7 +3,6 @@ import 'package:flutter/services.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/core/theme/tema.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/erro/erro-stateless.view.base.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/adicionar_fundos/adicionar_fundos.controller.dart';
-import 'package:rech_mobile_app_banco_imobiliario/app/core/services/injecao_dependencia.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/input.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/jogador_escolhido.dart';
@@ -11,12 +10,12 @@ import 'package:rech_mobile_app_banco_imobiliario/app/ui/scaffold_tema.dart';
 
 class JogoAdicionarFundosView extends ErroViewStatelessBase {
   
-  JogoAdicionarFundosView({super.key});
+  const JogoAdicionarFundosView({super.key, required this.controller, required super.erroController});
 
-  final _controller = InjecaoDependencia.obterDependencia<AdicionarFundosController>();
+  final AdicionarFundosController controller;
 
   void adicionar(BuildContext context) {
-    _controller.adicionar();
+    controller.adicionar();
     Navigator.pop(context);
     Navigator.pop(context);
   }
@@ -39,7 +38,7 @@ class JogoAdicionarFundosView extends ErroViewStatelessBase {
                 style: Theme.of(context).textTheme.labelMedium,
               ),
               Input(
-                controller: _controller.controllerInput,
+                controller: controller.controllerInput,
                 inputFormatters: [
                   FilteringTextInputFormatter.digitsOnly
                 ],
@@ -53,7 +52,7 @@ class JogoAdicionarFundosView extends ErroViewStatelessBase {
           ),
         ),
         const SizedBox(height: 10),
-        JogadorEscolhido(jogador: _controller.jogadorJogando)
+        JogadorEscolhido(jogador: controller.jogadorJogando)
       ],
     )
   );
