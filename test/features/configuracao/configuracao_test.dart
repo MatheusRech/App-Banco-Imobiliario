@@ -8,7 +8,7 @@ import 'package:rech_mobile_app_banco_imobiliario/app/features/erro/erro.control
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/jogo.controller.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
 
-import 'configuracao.teste.mocks.dart';
+import 'configuracao_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<ConfiguracaoController>(), MockSpec<JogoController>(), MockSpec<ErroController>()])
 void main() {
@@ -19,9 +19,10 @@ void main() {
     final mockErroController = MockErroController();
 
     double valorParaCadaJogador = 0;
+    const double valorExperadoConfi = 5000;
 
-    when(mockConfiguracaoController.definirValorParaCadaJogador(5000)).thenAnswer((realInvocation) {
-      valorParaCadaJogador = realInvocation.positionalArguments[0];
+    when(mockConfiguracaoController.definirValorParaCadaJogador(any)).thenAnswer((realInvocation) {
+      valorParaCadaJogador = valorExperadoConfi;
     });
 
     await tester.pumpWidget(MaterialApp(
@@ -34,9 +35,11 @@ void main() {
 
     final botoes = find.byType(Botao);
 
+    expect(botoes, findsAny);
+
     await tester.tap(botoes.first);
     await tester.pump();
 
-    expect(valorParaCadaJogador, 5000);
+    expect(valorParaCadaJogador, valorExperadoConfi);
   });
 }

@@ -9,7 +9,7 @@ import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/adicio
 import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/jogador_escolhido.dart';
 
-import 'adicionar_fundos.teste.mocks.dart';
+import 'adicionar_fundos_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<AdicionarFundosController>(), MockSpec<ErroController>()])
 void main(){

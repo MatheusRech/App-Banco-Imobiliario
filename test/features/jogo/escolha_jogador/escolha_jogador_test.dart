@@ -5,7 +5,8 @@ import 'package:mockito/mockito.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/escolha_jogador/escolha_jogador.view.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/jogo.controller.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
-import 'escolha_jogador.teste.mocks.dart';
+
+import 'escolha_jogador_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<JogoController>()])
 void main() {

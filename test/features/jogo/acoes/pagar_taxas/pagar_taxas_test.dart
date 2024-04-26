@@ -9,7 +9,7 @@ import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/pagar_
 import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/jogador_escolhido.dart';
 
-import 'pagar_taxas.teste.mocks.dart';
+import 'pagar_taxas_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<PagarTaxasController>(), MockSpec<ErroController>()])
 void main() {

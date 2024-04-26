@@ -9,7 +9,8 @@ import 'package:rech_mobile_app_banco_imobiliario/app/features/jogadores/jogador
 import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/botao.dart';
 
-import 'jogadores.teste.mocks.dart';
+import 'jogadores_test.mocks.dart';
+
 
 @GenerateNiceMocks([MockSpec<JogadoresController>(), MockSpec<ErroController>()])
 void main() {

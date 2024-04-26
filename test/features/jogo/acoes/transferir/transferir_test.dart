@@ -8,7 +8,7 @@ import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/acoes/transf
 import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/ui/jogador_escolhido.dart';
 
-import 'transferir.teste.mocks.dart';
+import 'transferir_test.mocks.dart';
 
 @GenerateNiceMocks([MockSpec<JogoTransferirController>(), MockSpec<ErroController>()])
 void main(){

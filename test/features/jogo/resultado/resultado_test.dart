@@ -7,7 +7,8 @@ import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/resultado/re
 import 'package:rech_mobile_app_banco_imobiliario/app/features/jogo/resultado/resultado.view.dart';
 import 'package:rech_mobile_app_banco_imobiliario/app/models/jogador.dart';
 
-import 'resultado.test.mocks.dart';
+import 'resultado_test.mocks.dart';
+
 
 @GenerateNiceMocks([MockSpec<ResultadoController>()])
 void main() {
